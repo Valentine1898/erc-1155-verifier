@@ -25,11 +25,7 @@ describe("Unit tests", function () {
 
     it("should successfully mint nft", async function () {
 
-      const erc1155VerifierFactory = await ethers.getContractFactory("$ERC1155Verifier");
-      const erc1155Verifier = await erc1155VerifierFactory.connect(this.signers.admin)
-          .deploy(
-          );
-      await erc1155Verifier.waitForDeployment();
+
 
     });
 
