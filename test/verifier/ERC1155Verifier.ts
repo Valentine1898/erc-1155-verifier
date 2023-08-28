@@ -1,7 +1,10 @@
 import {loadFixture} from "@nomicfoundation/hardhat-network-helpers";
 import {ethers} from "hardhat";
+import {} from "hardhat-exposed"
 
 import type {Signers} from "../types";
+import {expect} from "chai";
+
 
 
 describe("Unit tests", function () {
@@ -17,10 +20,16 @@ describe("Unit tests", function () {
 
   describe("erc1155Verifier", function () {
     beforeEach(async function () {
-      this.erc1155Verifier = await ethers.getContractAt("ERC1155Verifier", "0xf70E005F52E07d627794CeB7C569DAA487a53cFF");
+
     });
 
-    it('should ', () => {
+    it("should successfully mint nft", async function () {
+
+      const erc1155VerifierFactory = await ethers.getContractFactory("$ERC1155Verifier");
+      const erc1155Verifier = await erc1155VerifierFactory.connect(this.signers.admin)
+          .deploy(
+          );
+      await erc1155Verifier.waitForDeployment();
 
     });
 
