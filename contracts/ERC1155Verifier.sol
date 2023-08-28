@@ -57,4 +57,18 @@ contract ERC1155Verifier is ERC1155, ZKPVerifier {
         }
     }
 
+    function _beforeTokenTransfer(
+        address operator,
+        address from,
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        bytes memory data
+    ) internal view override {
+        require(
+            proofs[to][TRANSFER_REQUEST_ID] == true,
+            "only identities who provided proof are allowed to receive tokens"
+        );
+    }
+
 }
